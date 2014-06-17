@@ -19,5 +19,10 @@
 	<string name="generic_bt_quit">終了</string>
 	<string name="generic_message_quit">Quit the app?</string>
    	<string name="generic_notice">注目</string>
+   	<string name="generic_start">Start</string>
+   	<string name="generic_stop">Stop</string>
     
+   	<!-- actv_main.xml -->
+   		<string name="actv_main_iv_desc">Picture</string>
+   		
 </resources>

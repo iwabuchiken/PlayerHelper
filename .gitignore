@@ -4,7 +4,7 @@
 *.ap_
 *.dex
 *.*.class
-#bin/*
+bin/*
 #gen/*
 Test.java
 libs/
