@@ -26,7 +26,10 @@ public final class R {
         public static final int proj_icon_64x64=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f080001;
+        public static final int action_settings=0x7f080004;
+        public static final int actv_main_bt_1=0x7f080002;
+        public static final int actv_main_bt_2=0x7f080003;
+        public static final int actv_main_iv=0x7f080001;
         public static final int container=0x7f080000;
     }
     public static final class layout {
@@ -38,6 +41,9 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
+        /**  actv_main.xml 
+         */
+        public static final int actv_main_iv_desc=0x7f050011;
         public static final int app_name=0x7f050000;
         public static final int generic_bt_back=0x7f050005;
         public static final int generic_bt_cancel=0x7f050004;
@@ -47,6 +53,8 @@ public final class R {
         public static final int generic_bt_quit=0x7f05000c;
         public static final int generic_message_quit=0x7f05000d;
         public static final int generic_notice=0x7f05000e;
+        public static final int generic_start=0x7f05000f;
+        public static final int generic_stop=0x7f050010;
         public static final int generic_tv_confirm=0x7f050006;
         public static final int generic_tv_delete=0x7f05000a;
         public static final int generic_tv_edit=0x7f050009;
