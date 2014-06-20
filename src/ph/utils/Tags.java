@@ -102,44 +102,13 @@ public class Tags {
 	
 	
 	public static enum ButtonTags {
-		// MainActivity.java
+		// MainActv.java
 		ib_up,
+		ACTVMAIN_BT_START, ACTVMAIN_BT_STOP,
 		
 		// DBAdminActivity.java
 		db_manager_activity_create_table, db_manager_activity_drop_table, 
 		db_manager_activity_register_patterns,
-		
-		// thumb_activity.xml
-		thumb_activity_ib_back, thumb_activity_ib_bottom, thumb_activity_ib_top,
-		
-		// image_activity.xml
-		image_activity_back, image_activity_prev, image_activity_next,
-		
-		// AILAdapter.java
-		ailist_cb,
-		
-		// actv_play.xml
-		actv_play_bt_play, actv_play_bt_stop, actv_play_bt_back,
-		actv_play_tv_title, actv_play_tv_memo,
-		
-		actv_play_bt_see_bm, actv_play_bt_add_bm,
-		
-		// SearchActv.java
-		actv_search_ib_bottom, actv_search__ib_top,
-
-		// AILAdapter_move.java
-		ailist_cb_search,
-		
-		// actv_bm.xml
-		actv_bm_bt_back,
-		actv_bm_ib_top, actv_bm_ib_bottom,
-		actv_bm_ib_up, actv_bm_ib_down,
-		actv_bm_ib_back,
-		
-		// actv_hist.xml
-		actv_hist_ib_back, actv_hist_ib_bottom, actv_hist_ib_top,
-
-		
 		
 	}//public static enum ButtonTags
 	
