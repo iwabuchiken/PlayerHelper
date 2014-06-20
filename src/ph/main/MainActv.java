@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 import app.listeners.button.BO_CL;
 import app.listeners.button.BO_TL;
 
@@ -61,7 +62,17 @@ public class MainActv extends Activity {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
+            
+        } else if (id == R.id.action_search) {
+        	
+        	// debug
+			String msg_Toast = "Search!";
+			Toast.makeText(this, msg_Toast, Toast.LENGTH_SHORT).show();
+			
+			return true;
+        	
         }
+        
         return super.onOptionsItemSelected(item);
     }
 
