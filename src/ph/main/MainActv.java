@@ -31,6 +31,12 @@ public class MainActv extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actv_main);
 
+		// Log
+		String msg_Log = "onCreate()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
 //        if (savedInstanceState == null) {
 //            getFragmentManager().beginTransaction()
 //                    .add(R.id.container, new PlaceholderFragment())
@@ -62,6 +68,12 @@ public class MainActv extends Activity {
 	private void
 	_onStart__Set_Initial_Image() {
 		// TODO Auto-generated method stub
+		// Log
+		String msg_Log = "_onStart__Set_Initial_Image()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		////////////////////////////////
 
 		// list in "Pictures"
@@ -74,7 +86,7 @@ public class MainActv extends Activity {
 		if (!dpath_Pictures.exists()) {
 			
 			// Log
-			String msg_Log = String.format(
+			msg_Log = String.format(
 							"Dir => not exist: %s",
 							dpath_Pictures.getAbsolutePath());
 			
@@ -99,14 +111,66 @@ public class MainActv extends Activity {
 //		File fpath_Target = new File(dpath_Pictures, "2013-12-07_20-01-34_990.jpg");
 //		File fpath_Target = fpath_Pictures[0];
 		
-		Bitmap bm = BitmapFactory.decodeFile(fpath_Target.getAbsolutePath());
+		// Log
+		msg_Log = "Preparing => CONS.MainActv.bm";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
 		
-		Bitmap bm_Modified = _modify_Bitmap(bm, 90, 100);
+		//test
+		if (CONS.MainActv.bm != null) {
+			
+			CONS.MainActv.bm = null;
+			
+			// Log
+			msg_Log = "CONS.MainActv.bm => nulled";
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} else {
+			
+			// Log
+			msg_Log = "CONS.MainActv.bm => null";
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+		//test
+		//REF https://groups.google.com/forum/#!topic/android-group-japan/-kD-TSUFQfU ohisama
+		BitmapFactory.Options opt = new BitmapFactory.Options();
+		opt.inSampleSize=4;
+		
+		CONS.MainActv.bm = BitmapFactory.decodeFile(
+								fpath_Target.getAbsolutePath(), opt);
+//		CONS.MainActv.bm = BitmapFactory.decodeFile(fpath_Target.getAbsolutePath());
+//		Bitmap bm = BitmapFactory.decodeFile(fpath_Target.getAbsolutePath());
+		
+		// Log
+		msg_Log = "CONS.MainActv.bm => initialized";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		
+		CONS.MainActv.bm_Modified = _modify_Bitmap(CONS.MainActv.bm, 90, 100);
+//		Bitmap bm_Modified = _modify_Bitmap(bm, 90, 100);
 
+		// free bm
+		if (CONS.MainActv.bm != null) {
+		    CONS.MainActv.bm.recycle();
+		    CONS.MainActv.bm = null;
+
+
+		}
+		
 		CONS.MainActv.iv_MainActv = (ImageView) this.findViewById(R.id.actv_main_iv);
 //		ImageView iv = (ImageView) this.findViewById(R.id.actv_main_iv);
 		
-		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);		
+		CONS.MainActv.iv_MainActv.setImageBitmap(CONS.MainActv.bm_Modified);		
+//		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);		
 		
 	}//_onStart__Set_Initial_Image()
 
@@ -114,6 +178,13 @@ public class MainActv extends Activity {
 	_modify_Bitmap
 	(Bitmap bm, int numerator, int denominator) {
 		// TODO Auto-generated method stub
+		// Log
+		String msg_Log = "_modify_Bitmap()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+		
 		int bm_w = bm.getWidth();
 		int bm_h = bm.getHeight();
 		
@@ -173,6 +244,12 @@ public class MainActv extends Activity {
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
+		// Log
+		String msg_Log = "onStart()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
 		super.onStart();
 		
 		_onStart__Set_Initial_Image();
@@ -230,6 +307,12 @@ public class MainActv extends Activity {
 	@Override
 	protected void onRestart() {
 		// TODO Auto-generated method stub
+		// Log
+		String msg_Log = "onRestart()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
 		super.onRestart();
 	}
 
@@ -237,6 +320,12 @@ public class MainActv extends Activity {
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
+		// Log
+		String msg_Log = "onResume()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
 		super.onResume();
 	}
 
@@ -244,6 +333,51 @@ public class MainActv extends Activity {
 	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
+		// Log
+		String msg_Log = "onPause()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+		////////////////////////////////
+
+		// bitmap => free
+
+		////////////////////////////////
+		// free
+		if (CONS.MainActv.bm_Modified != null) {
+			
+		    CONS.MainActv.bm_Modified.recycle();
+		    CONS.MainActv.bm_Modified = null;
+
+		    // Log
+			msg_Log = "CONS.MainActv.bm_Modified => freed";
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+
+		//test
+		CONS.MainActv.iv_MainActv.setImageDrawable(null);
+		
+		//test
+		System.gc();
+		
+		// Log
+		msg_Log = "System.gc() => called";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+		
+		// Log
+		msg_Log = "iv_MainActv => set null";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		
 		super.onPause();
 	}
 
@@ -251,6 +385,25 @@ public class MainActv extends Activity {
 	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub
+		// Log
+		String msg_Log = "onStop()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		//test
+		CONS.MainActv.iv_MainActv.setImageDrawable(null);
+		
+		//test
+		System.gc();
+		
+		// Log
+		msg_Log = "System.gc() => called";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+		
 		super.onStop();
 	}
 
@@ -258,6 +411,12 @@ public class MainActv extends Activity {
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
+		// Log
+		String msg_Log = "onDestroy()";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
 		super.onDestroy();
 	}
 

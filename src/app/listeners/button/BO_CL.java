@@ -78,6 +78,30 @@ public class BO_CL implements OnClickListener {
 	case_MainActv_Bt_Start() {
 		// TODO Auto-generated method stub
 		
+		// free
+		if (CONS.MainActv.bm_Modified != null) {
+			
+		    CONS.MainActv.bm_Modified.recycle();
+		    CONS.MainActv.bm_Modified = null;
+
+		    // Log
+			String msg_Log = "CONS.MainActv.bm_Modified => freed";
+			Log.d("BO_CL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			System.gc();
+			
+			// Log
+			msg_Log = "System.gc() => called";
+			Log.d("BO_CL.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			
+		}
+		
+		
 		Methods.start_Service(actv);
 		
 	}//case_MainActv_Bt_Start()
