@@ -23,12 +23,15 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="0.2"
+            android:background="@color/green4"
             android:orientation="vertical" >
 
             <Button
                 android:id="@+id/actv_main_bt_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/white"
                 android:padding="5dp"
                 android:text="@string/generic_start"
                 android:textSize="25sp" />
@@ -37,8 +40,11 @@
                 android:id="@+id/actv_main_bt_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/white"
                 android:padding="5dp"
                 android:text="@string/generic_stop"
+                android:textColor="@color/red"
                 android:textSize="25sp" />
 
         </LinearLayout>

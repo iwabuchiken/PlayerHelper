@@ -3,6 +3,7 @@ package ph.main;
 import java.io.File;
 
 import ph.utils.CONS;
+import ph.utils.Tags;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
@@ -18,7 +19,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import app.listeners.button.BO_CL;
+import app.listeners.button.BO_TL;
 
 public class MainActv extends Activity {
 
@@ -171,6 +175,53 @@ public class MainActv extends Activity {
 		super.onStart();
 		
 		_onStart__Set_Initial_Image();
+		
+		////////////////////////////////
+
+		// listeners
+
+		////////////////////////////////
+		_onStart__Set_Listeners();
+		
+		
+		
+	}
+
+
+	private void _onStart__Set_Listeners() {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+
+		// get: views
+
+		////////////////////////////////
+		
+		Button bt_Start = (Button) this.findViewById(R.id.actv_main_bt_1);
+		Button bt_Stop = (Button) this.findViewById(R.id.actv_main_bt_2);
+		
+		////////////////////////////////
+
+		// tag
+
+		////////////////////////////////
+		bt_Start.setTag(Tags.ButtonTags.ACTVMAIN_BT_START);
+		bt_Stop.setTag(Tags.ButtonTags.ACTVMAIN_BT_STOP);
+		
+		////////////////////////////////
+
+		// BO_TL
+
+		////////////////////////////////
+		bt_Start.setOnTouchListener(new BO_TL(this));
+		bt_Stop.setOnTouchListener(new BO_TL(this));
+
+		////////////////////////////////
+		
+		// BO_CL
+		
+		////////////////////////////////
+		bt_Start.setOnClickListener(new BO_CL(this));
+		bt_Stop.setOnClickListener(new BO_CL(this));
 		
 	}
 

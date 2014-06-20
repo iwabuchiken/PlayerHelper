@@ -5,13 +5,13 @@ import java.util.TimerTask;
 import android.os.Handler;
 import android.util.Log;
 
-public class Task_Timer extends TimerTask {
+public class Task_SlideShow extends TimerTask {
 
 	Handler handler;
 	
 	int counter;
 	
-	public Task_Timer(Handler handler) {
+	public Task_SlideShow(Handler handler) {
 		// TODO Auto-generated constructor stub
 		
 		this.handler	= handler;

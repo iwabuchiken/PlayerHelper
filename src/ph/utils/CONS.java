@@ -46,59 +46,13 @@ public class CONS {
 		
 		////////////////////////////////
 		
-		// PlayActv
+		// MainActv
 		
 		////////////////////////////////
 		// Used in Service_ShowProgress
-		public static String iKey_PlayActv_TaskPeriod
-								= "iKey_PlayActv_TaskPeriod";
+		public static String iKey_MainActv_TaskPeriod_SlideShow
+								= "iKey_MainActv_TaskPeriod_SlideShow";
 		
-		
-		////////////////////////////////
-
-		// MainActv
-
-		////////////////////////////////
-		public static String iKey_CurrentPath_MainActv = "current_path";
-
-		
-		////////////////////////////////
-
-		// ALActv
-
-		////////////////////////////////
-		public static String iKey_AI_FilePath_Full = "iKey_AI_FilePath_Full";
-		
-		public static String iKey_AI_Db_Id = "iKey_AI_Db_Id";
-		
-		public static String iKey_AI_TableName = "iKey_AI_TableName";
-		
-		////////////////////////////////
-
-		// BMActv
-
-		////////////////////////////////
-		public static String iKey_BMActv_AI_Id = "bmactv_key_ai_id";
-//		public static String bmactv_key_ai_id = "bmactv_key_ai_id";
-		
-		public static String iKey_BMActv_TableName = "bmactv_key_table_name";
-		
-		public static String iKey_BMActv_Position = "bmactv_key_position";
-//		public static String bmactv_key_position = "bmactv_key_position";
-		
-		/***************************************
-		 * Request codes
-		 ***************************************/
-		public final static int REQUEST_CODE_SEE_BOOKMARKS = 0;
-		
-		public final static int REQUEST_CODE_HISTORY = 1;
-		
-		/***************************************
-		 * Result code
-		 ***************************************/
-		public final static int RESULT_CODE_SEE_BOOKMARKS_OK = 1;
-		
-		public final static int RESULT_CODE_SEE_BOOKMARKS_CANCEL = 0;
 		
 	}//public static class Intent
 	
