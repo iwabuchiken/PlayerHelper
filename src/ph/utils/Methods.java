@@ -1067,16 +1067,32 @@ public class Methods {
 		
 		int resi = counter % 3;
 		
-		Bitmap bm = BitmapFactory.decodeFile(
+//		Bitmap bm = BitmapFactory.decodeFile(
+		CONS.MainActv.bm = BitmapFactory.decodeFile(
 							CONS.MainActv.image_Files[resi].getAbsolutePath());
 		
-		Bitmap bm_Modified = Methods.modify_Bitmap(bm, 90, 100);
+		CONS.MainActv.bm_Modified = Methods.modify_Bitmap(CONS.MainActv.bm, 90, 100);
+//		Bitmap bm_Modified = Methods.modify_Bitmap(bm, 90, 100);
 
-		CONS.MainActv.iv_MainActv = 
-				(ImageView) CONS.MainActv.mainActv.findViewById(R.id.actv_main_iv);
+		// free bm
+		if (CONS.MainActv.bm != null) {
+		    CONS.MainActv.bm.recycle();
+		    CONS.MainActv.bm = null;
+
+
+		}
+		
+		if (CONS.MainActv.iv_MainActv == null) {
+			
+			CONS.MainActv.iv_MainActv = 
+					(ImageView) CONS.MainActv.mainActv.findViewById(
+															R.id.actv_main_iv);
+			
+		}
 //		ImageView iv = (ImageView) this.findViewById(R.id.actv_main_iv);
 		
-		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);
+		CONS.MainActv.iv_MainActv.setImageBitmap(CONS.MainActv.bm_Modified);
+//		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);
 		
 	}
 

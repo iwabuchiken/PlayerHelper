@@ -79,6 +79,9 @@ public class Service_SlideShow extends Service {
 		 ***************************************/
 		timer.cancel();
 		
+		//test
+		
+		
 		// Log
 		Log.d("Service_ShowProgress.java" + "["
 				+ Thread.currentThread().getStackTrace()[2].getLineNumber()

@@ -6,6 +6,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
 import android.provider.MediaStore;
@@ -352,6 +353,10 @@ public class CONS {
 		public static ImageView iv_MainActv;
 		
 		public static Activity mainActv;
+		
+		public static Bitmap bm;
+		
+		public static Bitmap bm_Modified;
 		
 	}
 	
