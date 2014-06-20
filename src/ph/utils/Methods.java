@@ -30,6 +30,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ph.listeners.DL;
 import ph.main.R;
+import ph.services.Service_SlideShow;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -42,12 +43,17 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -55,6 +61,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -939,6 +946,182 @@ public class Methods {
 		}
 		
 	}//public static boolean setPref_long(Activity actv, String pref_name, String pref_key, long value)
+
+	public static void 
+	start_Service(Activity actv) {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+
+		// get: file list
+
+		////////////////////////////////
+		File dpath_Pictures = new File(
+					CONS.Paths.dpath_Storage_Internal,
+					CONS.Paths.dname_Pictures);
+		
+		if (!dpath_Pictures.exists()) {
+			
+			// Log
+			String msg_Log = String.format(
+							"Dir => not exist: %s",
+							dpath_Pictures.getAbsolutePath());
+			
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}
+		
+		CONS.MainActv.image_Files = dpath_Pictures.listFiles();
+		
+		/******************************
+			validate
+		 ******************************/
+		if (CONS.MainActv.image_Files == null 
+				|| CONS.MainActv.image_Files.length < 1) {
+			
+			// Log
+			String msg_Log = "image_Files => Null or no content";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			// debug
+			Toast.makeText(actv, msg_Log, Toast.LENGTH_SHORT).show();
+			
+			return;
+			
+		}
+
+		////////////////////////////////
+
+		// Activity: Main
+
+		////////////////////////////////
+		CONS.MainActv.mainActv = actv;
+		
+		////////////////////////////////
+
+		// start: intent
+
+		////////////////////////////////
+		Intent i = new Intent((Context) actv, Service_SlideShow.class);
+		
+		actv.startService(i);
+		
+		// Log
+		String msg_Log = "Service => started";
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+	}//start_Service(Activity actv)
+
+	public static void stop_Service(Activity actv) {
+		// TODO Auto-generated method stub
+		Intent i = new Intent((Context) actv, Service_SlideShow.class);
+		
+		actv.stopService(i);
+		
+		// Log
+		String msg_Log = "Service => stopped";
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+
+	}
+
+	public static void 
+	show_BMP(int counter) {
+		// TODO Auto-generated method stub
+		
+		/******************************
+			validate
+		 ******************************/
+		if (CONS.MainActv.image_Files == null) {
+			
+			File dpath_Pictures = new File(
+					CONS.Paths.dpath_Storage_Internal,
+					CONS.Paths.dname_Pictures);
+	
+			if (!dpath_Pictures.exists()) {
+				
+				// Log
+				String msg_Log = String.format(
+								"Dir => not exist: %s",
+								dpath_Pictures.getAbsolutePath());
+				
+				Log.d("MainActv.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", msg_Log);
+				
+				return;
+				
+			}		
+			
+			CONS.MainActv.image_Files = dpath_Pictures.listFiles();
+			
+		}//if (CONS.MainActv.image_Files == null)
+		
+		int resi = counter % 3;
+		
+		Bitmap bm = BitmapFactory.decodeFile(
+							CONS.MainActv.image_Files[resi].getAbsolutePath());
+		
+		Bitmap bm_Modified = Methods.modify_Bitmap(bm, 90, 100);
+
+		CONS.MainActv.iv_MainActv = 
+				(ImageView) CONS.MainActv.mainActv.findViewById(R.id.actv_main_iv);
+//		ImageView iv = (ImageView) this.findViewById(R.id.actv_main_iv);
+		
+		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);
+		
+	}
+
+	private static Bitmap
+	modify_Bitmap
+	(Bitmap bm, int numerator, int denominator) {
+		// TODO Auto-generated method stub
+		int bm_w = bm.getWidth();
+		int bm_h = bm.getHeight();
+		
+		Display disp=((WindowManager)
+				CONS.MainActv.mainActv.getSystemService(
+						Context.WINDOW_SERVICE)).getDefaultDisplay();
+		
+		Point point = new Point();
+		
+		disp.getSize(point);
+		
+		int disp_Height = point.y;
+		int disp_Width = point.x;
+		
+		int w;
+		int h;
+		
+		if (bm_w > bm_h) {
+			
+			h = disp_Height;
+			
+			w = (int) (h * ((float) bm_w / bm_h));
+			
+		} else {//if (bm_w > bm_h)
+			
+			w = disp_Width;
+			
+			h = (int) (w * ((float) bm_h / bm_w));
+			
+		}//if (bm_w > bm_h)
+
+		// resize
+		w = w * numerator / denominator;
+		h = h * numerator / denominator;
+		
+		return Bitmap.createScaledBitmap(bm, w, h, false);
+		
+	}//private Bitmap _modify_Bitmap(Bitmap bm)
 
 }//public class Methods
 

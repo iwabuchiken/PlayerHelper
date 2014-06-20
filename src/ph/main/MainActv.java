@@ -103,9 +103,10 @@ public class MainActv extends Activity {
 		
 		Bitmap bm_Modified = _modify_Bitmap(bm, 90, 100);
 
-		ImageView iv = (ImageView) this.findViewById(R.id.actv_main_iv);
+		CONS.MainActv.iv_MainActv = (ImageView) this.findViewById(R.id.actv_main_iv);
+//		ImageView iv = (ImageView) this.findViewById(R.id.actv_main_iv);
 		
-		iv.setImageBitmap(bm_Modified);		
+		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);		
 		
 	}//_onStart__Set_Initial_Image()
 

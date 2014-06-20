@@ -4,6 +4,7 @@ import java.io.File;
 
 import ph.services.Service_SlideShow;
 import ph.utils.CONS;
+import ph.utils.Methods;
 import ph.utils.Tags;
 import android.app.ListActivity;
 import android.app.Activity;
@@ -77,16 +78,7 @@ public class BO_CL implements OnClickListener {
 	case_MainActv_Bt_Start() {
 		// TODO Auto-generated method stub
 		
-		Intent i = new Intent((Context) actv, Service_SlideShow.class);
-		
-		actv.startService(i);
-		
-		// Log
-		String msg_Log = "Service => started";
-		Log.d("BO_CL.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", msg_Log);
-		
+		Methods.start_Service(actv);
 		
 	}//case_MainActv_Bt_Start()
 	
@@ -94,15 +86,17 @@ public class BO_CL implements OnClickListener {
 	case_MainActv_Bt_Stop() {
 		// TODO Auto-generated method stub
 		
-		Intent i = new Intent((Context) actv, Service_SlideShow.class);
+		Methods.stop_Service(actv);
 		
-		actv.stopService(i);
-		
-		// Log
-		String msg_Log = "Service => stopped";
-		Log.d("BO_CL.java" + "["
-				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-				+ "]", msg_Log);
+//		Intent i = new Intent((Context) actv, Service_SlideShow.class);
+//		
+//		actv.stopService(i);
+//		
+//		// Log
+//		String msg_Log = "Service => stopped";
+//		Log.d("BO_CL.java" + "["
+//				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//				+ "]", msg_Log);
 		
 		
 	}//case_MainActv_Bt_Start()

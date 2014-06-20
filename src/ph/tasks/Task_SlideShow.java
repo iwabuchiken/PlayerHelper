@@ -2,6 +2,7 @@ package ph.tasks;
 
 import java.util.TimerTask;
 
+import ph.utils.Methods;
 import android.os.Handler;
 import android.util.Log;
 
@@ -36,6 +37,13 @@ public class Task_SlideShow extends TimerTask {
 								.getLineNumber() + "]", msg_Log);
 				
 				counter ++;
+				
+				////////////////////////////////
+
+				// show: image
+
+				////////////////////////////////
+				Methods.show_BMP(counter);
 				
 			}//public void run() // Runnable
 			

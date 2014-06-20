@@ -1,7 +1,10 @@
 package ph.services;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
+
+
 
 
 
@@ -49,13 +52,15 @@ public class Service_SlideShow extends Service {
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "onCreate()");
 		
-		////////////////////////////////
-
-		// Get: Intent values
-
-		////////////////////////////////
-//		Intent i = this
+		_onCreate__Setup();
+		
 	}
+
+	private void 
+	_onCreate__Setup() {
+		// TODO Auto-generated method stub
+		
+	}//_onCreate__Setup()
 
 	@Override
 	public void onDestroy() {
@@ -95,9 +100,28 @@ public class Service_SlideShow extends Service {
 				+ Thread.currentThread().getStackTrace()[2].getMethodName()
 				+ "]", "onStart()");
 		
-		startCount();
+		start_SlideShow();
+//		startCount();
 
 	}//public void onStart(Intent intent, int startId)
+
+	private void start_SlideShow() {
+		// TODO Auto-generated method stub
+		
+		final android.os.Handler handler = new android.os.Handler();
+		
+		counter = 0;
+		
+		//
+		if (timer != null) {
+			timer.cancel();
+		}//if (timer != null)
+		
+		timer = new Timer();
+
+		timer.schedule(new Task_SlideShow(handler), 0, period);
+		
+	}
 
 	private void startCount() {
 		
@@ -131,17 +155,17 @@ public class Service_SlideShow extends Service {
 			
 			// Log
 			String msg_Log = "period set to => " + this.period;
-			Log.d("Service_ShowProgress.java" + "["
+			Log.d("Service_SlideShow.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", msg_Log);
 			
 		} else {
 			
-			this.period = 500;
+			this.period = 1000;
 			
 			// Log
 			String msg_Log = "period set to => " + this.period;
-			Log.d("Service_ShowProgress.java" + "["
+			Log.d("Service_SlideShow.java" + "["
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", msg_Log);
 			

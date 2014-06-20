@@ -4,11 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -342,4 +344,15 @@ public class CONS {
 		};
 
 	}
+	
+	public static class MainActv {
+		
+		public static File[] image_Files;
+		
+		public static ImageView iv_MainActv;
+		
+		public static Activity mainActv;
+		
+	}
+	
 }//public class CONS
