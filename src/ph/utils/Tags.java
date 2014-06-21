@@ -2,74 +2,14 @@ package ph.utils;
 
 public class Tags {
 
-	public static enum DialogTags {
+	public static enum DialogButtonTags {
 		// Generics
 		DLG_GENERIC_DISMISS, dlg_generic_dismiss_second_dialog,
 		dlg_generic_dismiss_third_dialog,
 		
+		// dlg_actionbar_mainactv.xml
+		DLG_ACTIONBAR_MAINACTV_BT_OK,
 		
-		// dlg_create_folder.xml
-		dlg_create_folder_ok, dlg_create_folder_cancel,
-
-		// dlg_input_empty.xml
-		dlg_input_empty_reenter, dlg_input_empty_cancel,
-		
-		// dlg_confirm_create_folder.xml
-		dlg_confirm_create_folder_ok, dlg_confirm_create_folder_cancel,
-
-		// dlg_confirm_remove_folder.xml
-		dlg_confirm_remove_folder_ok, dlg_confirm_remove_folder_cancel,
-
-		// dlg_drop_table.xml
-		dlg_drop_table_btn_cancel, dlg_drop_table,
-		
-		// dlg_confirm_drop.xml
-		dlg_confirm_drop_table_btn_ok, dlg_confirm_drop_table_btn_cancel,
-		
-		// dlg_add_memos.xml
-		dlg_add_memos_bt_add, dlg_add_memos_bt_cancel, dlg_add_memos_bt_patterns,
-		dlg_add_memos_gv,
-
-		// dlg_move_files.xml
-		dlg_move_files_move, dlg_move_files,
-		
-		// dlg_confirm_move_files.xml	=> ok, cancel, dlg tag
-		dlg_confirm_move_files_ok, dlg_confirm_move_files_cancel, dlg_confirm_move_files,
-
-		// dlg_item_menu.xml
-		dlg_item_menu_bt_cancel, dlg_item_menu,
-
-		// dlg_create_table.xml
-		dlg_create_table_bt_create,
-
-		// dlg_memo_patterns.xml
-		dlg_memo_patterns,
-		
-		// dlg_register_patterns.xml
-		dlg_register_patterns_register,
-
-		// dlg_search.xml
-		dlg_search, dlg_search_ok,
-
-		// dlg_admin_patterns.xml
-
-		// dlg_confirm_delete_patterns.xml
-		dlg_confirm_delete_patterns_ok,
-		
-		// dlg_edit_title.xml
-		DLG_PLAYACTV_EDIT_TITLE_BT_OK,
-		
-		// dlg_edit_title.xml(Dialog: egit memo)
-		dlg_edit_memo_bt_ok,
-
-		// dlg_confirm_move_files_search	=> ok, cancel, dlg tag
-		dlg_confirm_move_files_search_ok,
-		
-		// dlg_edit_item.xml
-		DLG_EDIT_ITEM_BT_OK,
-		
-		// dlg: confirm delete BM
-		dlg_conf_delete_BM_ok,
 		
 	}//public static enum DialogTags
 	

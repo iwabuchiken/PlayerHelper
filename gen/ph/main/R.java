@@ -43,16 +43,25 @@ public final class R {
         public static final int proj_icon_64x64=0x7f020001;
     }
     public static final class id {
-        public static final int action_search=0x7f090005;
-        public static final int action_settings=0x7f090004;
+        public static final int action_pref=0x7f09000d;
+        public static final int action_settings=0x7f09000c;
         public static final int actv_main_bt_1=0x7f090002;
         public static final int actv_main_bt_2=0x7f090003;
         public static final int actv_main_iv=0x7f090001;
         public static final int container=0x7f090000;
+        public static final int dlg_actionbar_mainactv_bt_cancel=0x7f09000b;
+        public static final int dlg_actionbar_mainactv_bt_ok=0x7f09000a;
+        public static final int dlg_actionbar_mainactv_rb_five=0x7f090009;
+        public static final int dlg_actionbar_mainactv_rb_four=0x7f090008;
+        public static final int dlg_actionbar_mainactv_rb_one=0x7f090005;
+        public static final int dlg_actionbar_mainactv_rb_three=0x7f090007;
+        public static final int dlg_actionbar_mainactv_rb_two=0x7f090006;
+        public static final int dlg_actionbar_mainactv_rg=0x7f090004;
     }
     public static final class layout {
         public static final int actv_main=0x7f030000;
-        public static final int fragment_main_actv=0x7f030001;
+        public static final int dlg_actionbar_mainactv=0x7f030001;
+        public static final int fragment_main_actv=0x7f030002;
     }
     public static final class menu {
         public static final int main_actv=0x7f080000;
@@ -63,6 +72,15 @@ public final class R {
          */
         public static final int actv_main_iv_desc=0x7f060011;
         public static final int app_name=0x7f060000;
+        public static final int dlg_actionbar_mainactv_five=0x7f060017;
+        public static final int dlg_actionbar_mainactv_four=0x7f060016;
+        public static final int dlg_actionbar_mainactv_one=0x7f060013;
+        public static final int dlg_actionbar_mainactv_six=0x7f060018;
+        public static final int dlg_actionbar_mainactv_three=0x7f060015;
+        /**  dlg_actionbar_mainactv.xml 
+         */
+        public static final int dlg_actionbar_mainactv_title=0x7f060012;
+        public static final int dlg_actionbar_mainactv_two=0x7f060014;
         public static final int generic_bt_back=0x7f060005;
         public static final int generic_bt_cancel=0x7f060004;
         /**  Generic items 

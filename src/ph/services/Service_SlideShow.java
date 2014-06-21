@@ -11,8 +11,14 @@ import java.util.TimerTask;
 
 
 
+
+
+
+import ph.main.MainActv;
 import ph.tasks.Task_SlideShow;
 import ph.utils.CONS;
+import ph.utils.Methods;
+import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -147,14 +153,49 @@ public class Service_SlideShow extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// TODO Auto-generated method stub
+
+//		Activity actv = new Activity();
 		
-		int tmp = intent.getIntExtra(
-						CONS.Intent.iKey_MainActv_TaskPeriod_SlideShow, 
-						CONS.Intent.dflt_IntExtra_value);
-		
-		if (tmp != CONS.Intent.dflt_IntExtra_value) {
+		/******************************
+			validate
+		 ******************************/
+		if (CONS.MainActv.mainActv == null) {
 			
-			this.period = tmp;
+			// Log
+			String msg_Log = "CONS.MainActv.mainActv => null";
+			Log.d("Service_SlideShow.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+
+			this.stopSelf();
+			
+			// Log
+			msg_Log = "Service => stopped";
+			Log.d("Service_SlideShow.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return -1;
+			
+		}
+		
+//		CONS.MainActv.mainActv
+		int tmp = Methods.get_Pref_Int(
+							CONS.MainActv.mainActv,
+//							actv, 
+//							new Activity(), 
+							CONS.Pref.pname_MainActv, 
+							CONS.Pref.pkey_TaskPeriod, 
+							CONS.Pref.dflt_IntExtra_value);
+//		int tmp = intent.getIntExtra(
+//				CONS.Intent.iKey_MainActv_TaskPeriod_SlideShow, 
+//				CONS.Intent.dflt_IntExtra_value);
+		
+		if (tmp != CONS.Pref.dflt_IntExtra_value) {
+//			if (tmp != CONS.Intent.dflt_IntExtra_value) {
+			
+			this.period = tmp * 1000;
+//			this.period = tmp;
 			
 			// Log
 			String msg_Log = "period set to => " + this.period;

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/dlg_actionbar_mainactv_rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/dlg_actionbar_mainactv_rb_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/dlg_actionbar_mainactv_one"
+            android:textSize="25sp" />
+
+        <RadioButton
+            android:id="@+id/dlg_actionbar_mainactv_rb_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dlg_actionbar_mainactv_two"
+            android:textSize="25sp" />
+
+        <RadioButton
+            android:id="@+id/dlg_actionbar_mainactv_rb_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dlg_actionbar_mainactv_three"
+            android:textSize="25sp" />
+
+        <RadioButton
+            android:id="@+id/dlg_actionbar_mainactv_rb_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dlg_actionbar_mainactv_four"
+            android:textSize="25sp" />
+
+        <RadioButton
+            android:id="@+id/dlg_actionbar_mainactv_rb_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dlg_actionbar_mainactv_five"
+            android:textSize="25sp" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/dlg_actionbar_mainactv_bt_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/generic_bt_ok"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/dlg_actionbar_mainactv_bt_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/generic_bt_cancel"
+            android:textColor="@color/red"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

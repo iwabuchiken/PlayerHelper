@@ -2,7 +2,10 @@ package ph.main;
 
 import java.io.File;
 
+import ph.listeners.button.BO_CL;
+import ph.listeners.button.BO_TL;
 import ph.utils.CONS;
+import ph.utils.Methods_dlg;
 import ph.utils.Tags;
 import android.app.Activity;
 import android.app.Fragment;
@@ -22,8 +25,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-import app.listeners.button.BO_CL;
-import app.listeners.button.BO_TL;
 
 public class MainActv extends Activity {
 
@@ -63,11 +64,13 @@ public class MainActv extends Activity {
         if (id == R.id.action_settings) {
             return true;
             
-        } else if (id == R.id.action_search) {
+        } else if (id == R.id.action_pref) {
         	
-        	// debug
-			String msg_Toast = "Search!";
-			Toast.makeText(this, msg_Toast, Toast.LENGTH_SHORT).show();
+//        	// debug
+//			String msg_Toast = "Search!";
+//			Toast.makeText(this, msg_Toast, Toast.LENGTH_SHORT).show();
+        	
+        	Methods_dlg.dlg_Pref_Period(this);
 			
 			return true;
         	

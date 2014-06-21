@@ -24,5 +24,14 @@
     
    	<!-- actv_main.xml -->
    		<string name="actv_main_iv_desc">Picture</string>
+   	
+   	<!-- dlg_actionbar_mainactv.xml -->
+   		<string name="dlg_actionbar_mainactv_title">Period (sec)</string>
+   		<string name="dlg_actionbar_mainactv_one">1</string>
+   		<string name="dlg_actionbar_mainactv_two">2</string>
+   		<string name="dlg_actionbar_mainactv_three">3</string>
+   		<string name="dlg_actionbar_mainactv_four">4</string>
+   		<string name="dlg_actionbar_mainactv_five">5</string>
+   		<string name="dlg_actionbar_mainactv_six">6</string>
    		
 </resources>

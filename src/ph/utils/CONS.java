@@ -221,20 +221,9 @@ public class CONS {
 		// Commons
 
 		////////////////////////////////
-		public static long dflt_LongExtra_value = -1;
+		public final static long dflt_LongExtra_value = -1;
 		
-		////////////////////////////////
-
-		// PlayActv.java
-
-		////////////////////////////////
-		public static final String pname_PlayActv = "pname_PlayActv";
-		
-		public static final String pkey_PlayActv_CurrentPosition = 
-							"pkey_PlayActv_CurrentPosition";
-		
-		public static final String pkey_PlayActv_CurrentFileName = 
-							"pkey_PlayActv_CurrentFileName";
+		public final static int dflt_IntExtra_value = -1;
 		
 		////////////////////////////////
 
@@ -244,24 +233,12 @@ public class CONS {
 		
 		public static SharedPreferences prefs_MainActv;
 		
-		public static String pname_MainActv = "main_activity";
+		public final static String pname_MainActv 
+											= "main_activity";
 //		public static String pname_CurrentPath = "current_path";
 		
-		public static String pkey_CurrentPath = "pkey_CurrentPath";
-		
-		public static String pkey_CurrentPosition = "pkey_CurrentPosition";
-		
-		////////////////////////////////
-
-		// ALActv
-
-		////////////////////////////////
-		public static SharedPreferences prefs_ALActv;
-		
-		public static String pname_ALActv = "al_activity";
-		
-		public static String pkey_CurrentPosition_ALActv
-									= "pkey_CurrentPosition_ALActv";
+		public final static String pkey_TaskPeriod 
+											= "pkey_TaskPeriod";
 		
 	}
 

@@ -27,6 +27,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.Validate;
 
 import ph.listeners.DL;
 import ph.main.R;
@@ -63,6 +64,8 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -860,7 +863,7 @@ public class Methods {
 
 	}//public static String get_Pref_String
 	
-	public static int get_Pref_String
+	public static int get_Pref_Int
 	(Activity actv, String pref_name,
 			String pref_key, int defValue) {
 		
@@ -994,6 +997,13 @@ public class Methods {
 			return;
 			
 		}
+		
+		////////////////////////////////
+
+		// sort: array
+
+		////////////////////////////////
+		Arrays.sort(CONS.MainActv.image_Files);
 
 		////////////////////////////////
 
@@ -1063,13 +1073,43 @@ public class Methods {
 			
 			CONS.MainActv.image_Files = dpath_Pictures.listFiles();
 			
+			Arrays.sort(CONS.MainActv.image_Files);
+			
 		}//if (CONS.MainActv.image_Files == null)
 		
 		int resi = counter % 3;
 		
+		////////////////////////////////
+
+		// reset: Bitmap
+
+		////////////////////////////////
+		if (CONS.MainActv.bm != null) {
+		    CONS.MainActv.bm.recycle();
+		    CONS.MainActv.bm = null;
+
+
+		}
+
+		////////////////////////////////
+
+		// set: Bitmap
+
+		////////////////////////////////
+		// Log
+		String msg_Log = "Calling => BitmapFactory.decodeFile()";
+		Log.d("Methods.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		BitmapFactory.Options opt = new BitmapFactory.Options();
+		opt.inSampleSize=4;
+		
 //		Bitmap bm = BitmapFactory.decodeFile(
 		CONS.MainActv.bm = BitmapFactory.decodeFile(
-							CONS.MainActv.image_Files[resi].getAbsolutePath());
+							CONS.MainActv.image_Files[resi].getAbsolutePath(),
+							opt);
+//		CONS.MainActv.image_Files[resi].getAbsolutePath());
 		
 		CONS.MainActv.bm_Modified = Methods.modify_Bitmap(CONS.MainActv.bm, 90, 100);
 //		Bitmap bm_Modified = Methods.modify_Bitmap(bm, 90, 100);
@@ -1094,7 +1134,7 @@ public class Methods {
 		CONS.MainActv.iv_MainActv.setImageBitmap(CONS.MainActv.bm_Modified);
 //		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);
 		
-	}
+	}//show_BMP(int counter)
 
 	private static Bitmap
 	modify_Bitmap
@@ -1139,5 +1179,98 @@ public class Methods {
 		
 	}//private Bitmap _modify_Bitmap(Bitmap bm)
 
+	public static void 
+	set_Pref_Period
+	(Activity actv, Dialog dlg) {
+		// TODO Auto-generated method stub
+		
+		RadioGroup rg = 
+				(RadioGroup) dlg.findViewById(R.id.dlg_actionbar_mainactv_rg);
+		
+		int tmp_i = rg.getCheckedRadioButtonId();
+		
+		RadioButton rb_Target = (RadioButton) dlg.findViewById(tmp_i);
+		
+		/******************************
+			validate
+		 ******************************/
+		String input_Number = rb_Target.getText().toString();
+		
+		if (!Methods.is_Numeric(input_Number)) {
+			
+			// Log
+			String msg_Log = "Input => not numeric: " + input_Number;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			// debug
+			Toast.makeText(actv, msg_Log, Toast.LENGTH_SHORT).show();
+			
+			return;
+			
+		}
+		
+		////////////////////////////////
+
+		// set: pref
+
+		////////////////////////////////
+		boolean res = Methods.set_Pref_Int(
+							actv, 
+							CONS.Pref.pname_MainActv, 
+							CONS.Pref.pkey_TaskPeriod, 
+							Integer.parseInt(input_Number));
+		
+		/******************************
+			validate
+		 ******************************/
+		if (res == false) {
+			
+			// Log
+			String msg_Log = "Set pref => not done: " + input_Number;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			// debug
+			Toast.makeText(actv, msg_Log, Toast.LENGTH_SHORT).show();
+			
+			return;
+			
+		} else {
+			
+			// Log
+			String msg_Log = "Set pref => done: " + input_Number;
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			// debug
+			Toast.makeText(actv, msg_Log, Toast.LENGTH_SHORT).show();
+
+		}
+		
+		////////////////////////////////
+
+		// dialog: dismiss
+
+		////////////////////////////////
+		dlg.dismiss();
+		
+//		// debug
+//		String msg_Toast = "Chosen number => " + rb_Target.getText().toString();
+//		Toast.makeText(actv, msg_Toast, Toast.LENGTH_SHORT).show();
+		
+	}//set_Pref_Period
+
+	public static boolean is_Numeric(String num_string) {
+		
+//		return num_string.matches("((-|\\+)?[0-9]+(\\.[0-9]+)?)+ ");
+		return num_string.matches("((-|\\+)?[0-9]+(\\.[0-9]+)?)+");
+
+	}//public static boolean is_numeric(String num_string)
+
+	
 }//public class Methods
 
