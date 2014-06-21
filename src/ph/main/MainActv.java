@@ -1,6 +1,7 @@
 package ph.main;
 
 import java.io.File;
+import java.util.Arrays;
 
 import ph.listeners.button.BO_CL;
 import ph.listeners.button.BO_TL;
@@ -44,10 +45,74 @@ public class MainActv extends Activity {
 //                    .add(R.id.container, new PlaceholderFragment())
 //                    .commit();
 //        }
+		
+//		_debug();
+		
     }
 
 
-    @Override
+    private void _debug() {
+		// TODO Auto-generated method stub
+		_debug_D_3_V_1_1_P_1();
+	}
+
+
+	private void 
+	_debug_D_3_V_1_1_P_1() {
+		// TODO Auto-generated method stub
+		File dpath_Pictures = new File(
+				CONS.Paths.dpath_Storage_Internal,
+				CONS.Paths.dname_Pictures);
+
+		if (!dpath_Pictures.exists()) {
+			
+			// Log
+			String msg_Log = String.format(
+							"Dir => not exist: %s",
+							dpath_Pictures.getAbsolutePath());
+			
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+			return;
+			
+		}		
+		
+		File[] files = dpath_Pictures.listFiles();
+		
+		for (File file : files) {
+			
+			// Log
+			String msg_Log = "file.getName() = " + file.getName();
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+		// Log
+		String msg_Log = "Sorting...";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		Arrays.sort(files);
+		
+		for (File file : files) {
+			
+			// Log
+			msg_Log = "file.getName() = " + file.getName();
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+
+	}//_debug_D_3_V_1_1_P_1()
+
+
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -1077,7 +1077,8 @@ public class Methods {
 			
 		}//if (CONS.MainActv.image_Files == null)
 		
-		int resi = counter % 3;
+		int resi = counter % CONS.MainActv.image_Files.length;
+//		int resi = counter % 3;
 		
 		////////////////////////////////
 

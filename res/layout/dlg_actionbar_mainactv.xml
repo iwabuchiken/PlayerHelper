@@ -4,48 +4,117 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <RadioGroup
-        android:id="@+id/dlg_actionbar_mainactv_rg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
 
-        <RadioButton
-            android:id="@+id/dlg_actionbar_mainactv_rb_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/dlg_actionbar_mainactv_one"
-            android:textSize="25sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-        <RadioButton
-            android:id="@+id/dlg_actionbar_mainactv_rb_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dlg_actionbar_mainactv_two"
-            android:textSize="25sp" />
+            <RadioGroup
+                android:id="@+id/dlg_actionbar_mainactv_rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <RadioButton
-            android:id="@+id/dlg_actionbar_mainactv_rb_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dlg_actionbar_mainactv_three"
-            android:textSize="25sp" />
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_one"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/dlg_actionbar_mainactv_one"
+                    android:textSize="30sp" />
 
-        <RadioButton
-            android:id="@+id/dlg_actionbar_mainactv_rb_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dlg_actionbar_mainactv_four"
-            android:textSize="25sp" />
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_two"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_two"
+                    android:textSize="30sp" />
 
-        <RadioButton
-            android:id="@+id/dlg_actionbar_mainactv_rb_five"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dlg_actionbar_mainactv_five"
-            android:textSize="25sp" />
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_three"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_three"
+                    android:textSize="30sp" />
 
-    </RadioGroup>
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_four"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_four"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_five"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_five"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_six"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_six"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_seven"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_seven"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_eight"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_eight"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_nine"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_nine"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_ten"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_ten"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_fourteen"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_fourteen"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_fifteen"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_fifteen"
+                    android:textSize="30sp" />
+
+                <RadioButton
+                    android:id="@+id/dlg_actionbar_mainactv_rb_sixteen"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dlg_actionbar_mainactv_sixteen"
+                    android:textSize="30sp" />
+            </RadioGroup>
+
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="wrap_content"
