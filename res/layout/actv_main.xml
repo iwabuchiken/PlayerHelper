@@ -8,45 +8,63 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-        <ImageView
-            android:id="@+id/actv_main_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/actv_main_iv_desc"
-            android:src="@drawable/proj_icon_64x64" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/actv_main_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/actv_main_iv_desc"
+                android:src="@drawable/proj_icon_64x64" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="0.2"
+                android:background="@color/green4"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/actv_main_bt_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@color/white"
+                    android:padding="5dp"
+                    android:text="@string/generic_start"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/actv_main_bt_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@color/white"
+                    android:padding="5dp"
+                    android:text="@string/generic_stop"
+                    android:textColor="@color/red"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="0.2"
-            android:background="@color/green4"
-            android:orientation="vertical" >
+            android:layout_height="60dp" >
 
-            <Button
-                android:id="@+id/actv_main_bt_1"
+            <RadioGroup
+                android:id="@+id/actv_main_rg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@color/white"
-                android:padding="5dp"
-                android:text="@string/generic_start"
-                android:textSize="25sp" />
-
-            <Button
-                android:id="@+id/actv_main_bt_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@color/white"
-                android:padding="5dp"
-                android:text="@string/generic_stop"
-                android:textColor="@color/red"
-                android:textSize="25sp" />
-
+                android:orientation="horizontal" >
+            </RadioGroup>
         </LinearLayout>
 
     </LinearLayout>

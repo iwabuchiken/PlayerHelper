@@ -1013,6 +1013,20 @@ public class Methods {
 		CONS.MainActv.mainActv = actv;
 		
 		////////////////////////////////
+		
+		// view: set first image
+		
+		////////////////////////////////
+		Methods.set_Initial_Image(actv);
+		
+		////////////////////////////////
+
+		// view: set first radio button
+
+		////////////////////////////////
+		Methods.set_RadioButton(0);
+		
+		////////////////////////////////
 
 		// start: intent
 
@@ -1028,6 +1042,110 @@ public class Methods {
 				+ "]", msg_Log);
 		
 	}//start_Service(Activity actv)
+
+	private static void 
+	set_Initial_Image(Activity actv) {
+		// TODO Auto-generated method stub
+		
+		if (CONS.MainActv.image_Files == null) {
+			
+			File dpath_Pictures = new File(
+					CONS.Paths.dpath_Storage_Internal,
+					CONS.Paths.dname_Pictures);
+	
+			if (!dpath_Pictures.exists()) {
+				
+				// Log
+				String msg_Log = String.format(
+								"Dir => not exist: %s",
+								dpath_Pictures.getAbsolutePath());
+				
+				Log.d("MainActv.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", msg_Log);
+				
+				return;
+				
+			}		
+			
+			CONS.MainActv.image_Files = dpath_Pictures.listFiles();
+			
+			Arrays.sort(CONS.MainActv.image_Files);
+			
+		}//if (CONS.MainActv.image_Files == null)
+		
+		
+		
+		File fpath_Target = CONS.MainActv.image_Files[0];
+				
+//		File fpath_Target = new File(
+//								dpath_Pictures, 
+//								"IMG_20140615_212753.jpg");
+//		File fpath_Target = new File(dpath_Pictures, "2013-12-07_20-01-34_990.jpg");
+//		File fpath_Target = fpath_Pictures[0];
+		
+		// Log
+		String msg_Log = "Preparing => CONS.MainActv.bm";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		//test
+		if (CONS.MainActv.bm != null) {
+			
+			CONS.MainActv.bm = null;
+			
+			// Log
+			msg_Log = "CONS.MainActv.bm => nulled";
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		} else {
+			
+			// Log
+			msg_Log = "CONS.MainActv.bm => null";
+			Log.d("MainActv.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+			
+		}
+		
+		//test
+		//REF https://groups.google.com/forum/#!topic/android-group-japan/-kD-TSUFQfU ohisama
+		BitmapFactory.Options opt = new BitmapFactory.Options();
+		opt.inSampleSize=4;
+		
+		CONS.MainActv.bm = BitmapFactory.decodeFile(
+								fpath_Target.getAbsolutePath(), opt);
+//		CONS.MainActv.bm = BitmapFactory.decodeFile(fpath_Target.getAbsolutePath());
+//		Bitmap bm = BitmapFactory.decodeFile(fpath_Target.getAbsolutePath());
+		
+		// Log
+		msg_Log = "CONS.MainActv.bm => initialized";
+		Log.d("MainActv.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", msg_Log);
+		
+		
+		CONS.MainActv.bm_Modified = Methods.modify_Bitmap(CONS.MainActv.bm, 90, 100);
+//		Bitmap bm_Modified = _modify_Bitmap(bm, 90, 100);
+
+		// free bm
+		if (CONS.MainActv.bm != null) {
+		    CONS.MainActv.bm.recycle();
+		    CONS.MainActv.bm = null;
+
+
+		}
+		
+		CONS.MainActv.iv_MainActv = (ImageView) actv.findViewById(R.id.actv_main_iv);
+//		ImageView iv = (ImageView) this.findViewById(R.id.actv_main_iv);
+		
+		CONS.MainActv.iv_MainActv.setImageBitmap(CONS.MainActv.bm_Modified);		
+//		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);		
+		
+	}//set_Initial_Image(Activity actv)
 
 	public static void stop_Service(Activity actv) {
 		// TODO Auto-generated method stub
@@ -1134,6 +1252,9 @@ public class Methods {
 		
 		CONS.MainActv.iv_MainActv.setImageBitmap(CONS.MainActv.bm_Modified);
 //		CONS.MainActv.iv_MainActv.setImageBitmap(bm_Modified);
+		
+		
+		
 		
 	}//show_BMP(int counter)
 
@@ -1271,6 +1392,71 @@ public class Methods {
 		return num_string.matches("((-|\\+)?[0-9]+(\\.[0-9]+)?)+");
 
 	}//public static boolean is_numeric(String num_string)
+
+	public static void 
+	set_RadioButton(int counter) {
+		// TODO Auto-generated method stub
+		
+		/******************************
+		validate
+		 ******************************/
+		if (CONS.MainActv.image_Files == null) {
+			
+			File dpath_Pictures = new File(
+					CONS.Paths.dpath_Storage_Internal,
+					CONS.Paths.dname_Pictures);
+	
+			if (!dpath_Pictures.exists()) {
+				
+				// Log
+				String msg_Log = String.format(
+								"Dir => not exist: %s",
+								dpath_Pictures.getAbsolutePath());
+				
+				Log.d("MainActv.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", msg_Log);
+				
+				return;
+				
+			}		
+			
+			CONS.MainActv.image_Files = dpath_Pictures.listFiles();
+			
+			Arrays.sort(CONS.MainActv.image_Files);
+			
+		}//if (CONS.MainActv.image_Files == null)
+		
+		int resi = counter % CONS.MainActv.image_Files.length;
+		
+		////////////////////////////////
+
+		// set: radio button
+
+		////////////////////////////////
+		/******************************
+			validate
+		 ******************************/
+		if (CONS.MainActv.mainActv == null) {
+			
+			// Log
+			String msg_Log = "CONS.MainActv.mainActv => null";
+			Log.d("Methods.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", msg_Log);
+
+			return;
+			
+		}
+		
+		RadioGroup rg = (RadioGroup) CONS.MainActv.mainActv
+							.findViewById(R.id.actv_main_rg);
+		
+		RadioButton rb = (RadioButton) rg.getChildAt(resi);
+		
+		rb.setChecked(true);
+		
+	}//set_RadioButton(int counter)
 
 	
 }//public class Methods

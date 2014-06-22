@@ -128,7 +128,9 @@ public class Service_SlideShow extends Service {
 		
 		timer = new Timer();
 
-		timer.schedule(new Task_SlideShow(handler), 0, period);
+		timer.schedule(new Task_SlideShow(handler), period, period);
+//		timer.schedule(new Task_SlideShow(handler), 0, period);
+		
 		
 	}
 

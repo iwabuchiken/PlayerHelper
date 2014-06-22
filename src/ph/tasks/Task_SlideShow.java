@@ -44,6 +44,7 @@ public class Task_SlideShow extends TimerTask {
 
 				////////////////////////////////
 				Methods.show_BMP(counter);
+				Methods.set_RadioButton(counter);
 				
 			}//public void run() // Runnable
 			

@@ -25,6 +25,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class MainActv extends Activity {
@@ -184,9 +186,43 @@ public class MainActv extends Activity {
 		////////////////////////////////
 //		File[] fpath_Pictures = dpath_Pictures.listFiles();
 		
-		File fpath_Target = new File(
-								dpath_Pictures, 
-								"IMG_20140615_212753.jpg");
+		/******************************
+		validate
+		 ******************************/
+		if (CONS.MainActv.image_Files == null) {
+			
+//			File dpath_Pictures = new File(
+//					CONS.Paths.dpath_Storage_Internal,
+//					CONS.Paths.dname_Pictures);
+//	
+//			if (!dpath_Pictures.exists()) {
+//				
+//				// Log
+//				String msg_Log = String.format(
+//								"Dir => not exist: %s",
+//								dpath_Pictures.getAbsolutePath());
+//				
+//				Log.d("MainActv.java" + "["
+//						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//						+ "]", msg_Log);
+//				
+//				return;
+//				
+//			}		
+			
+			CONS.MainActv.image_Files = dpath_Pictures.listFiles();
+			
+			Arrays.sort(CONS.MainActv.image_Files);
+			
+		}//if (CONS.MainActv.image_Files == null)
+		
+		
+		
+		File fpath_Target = CONS.MainActv.image_Files[0];
+				
+//		File fpath_Target = new File(
+//								dpath_Pictures, 
+//								"IMG_20140615_212753.jpg");
 //		File fpath_Target = new File(dpath_Pictures, "2013-12-07_20-01-34_990.jpg");
 //		File fpath_Target = fpath_Pictures[0];
 		
@@ -331,6 +367,13 @@ public class MainActv extends Activity {
 
 		super.onStart();
 		
+		////////////////////////////////
+
+		// views
+
+		////////////////////////////////
+		_onStart__Set_Views();
+		
 		_onStart__Set_Initial_Image();
 		
 		////////////////////////////////
@@ -341,6 +384,77 @@ public class MainActv extends Activity {
 		_onStart__Set_Listeners();
 		
 		
+		
+	}
+
+
+	private void _onStart__Set_Views() {
+		// TODO Auto-generated method stub
+		////////////////////////////////
+
+		// Radio buttons
+
+		////////////////////////////////
+		////////////////////////////////
+
+		// get: num of files
+
+		////////////////////////////////
+		if (CONS.MainActv.image_Files == null) {
+			
+			File dpath_Pictures = new File(
+					CONS.Paths.dpath_Storage_Internal,
+					CONS.Paths.dname_Pictures);
+	
+			if (!dpath_Pictures.exists()) {
+				
+				// Log
+				String msg_Log = String.format(
+								"Dir => not exist: %s",
+								dpath_Pictures.getAbsolutePath());
+				
+				Log.d("MainActv.java" + "["
+						+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+						+ "]", msg_Log);
+				
+				return;
+				
+			}		
+			
+			CONS.MainActv.image_Files = dpath_Pictures.listFiles();
+			
+			Arrays.sort(CONS.MainActv.image_Files);
+			
+		}//if (CONS.MainActv.image_Files == null)
+		
+		int numOfFiles = CONS.MainActv.image_Files.length;
+		
+		////////////////////////////////
+
+		// Radio buttons
+
+		////////////////////////////////
+		
+		RadioGroup rg = (RadioGroup) findViewById(R.id.actv_main_rg);
+		
+		int numOfRadioButtons = numOfFiles;
+		
+		for (int i = 0; i < numOfRadioButtons; i++) {
+			
+			RadioButton rb = new RadioButton(this);
+			
+			rb.setText(String.valueOf(i));
+//			rb.setText("RB " + i);
+			
+			rb.setTextSize(25);
+			
+			rg.addView(rb);
+			
+		}
+		
+		RadioButton rb = (RadioButton) rg.getChildAt(0);
+		
+		rb.setChecked(true);
 		
 	}
 

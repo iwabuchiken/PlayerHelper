@@ -43,29 +43,30 @@ public final class R {
         public static final int proj_icon_64x64=0x7f020001;
     }
     public static final class id {
-        public static final int action_pref=0x7f090016;
-        public static final int action_settings=0x7f090015;
+        public static final int action_pref=0x7f090017;
+        public static final int action_settings=0x7f090016;
         public static final int actv_main_bt_1=0x7f090002;
         public static final int actv_main_bt_2=0x7f090003;
         public static final int actv_main_iv=0x7f090001;
+        public static final int actv_main_rg=0x7f090004;
         public static final int container=0x7f090000;
-        public static final int dlg_actionbar_mainactv_bt_cancel=0x7f090014;
-        public static final int dlg_actionbar_mainactv_bt_ok=0x7f090013;
-        public static final int dlg_actionbar_mainactv_rb_eight=0x7f09000d;
-        public static final int dlg_actionbar_mainactv_rb_fifteen=0x7f090011;
-        public static final int dlg_actionbar_mainactv_rb_five=0x7f09000a;
-        public static final int dlg_actionbar_mainactv_rb_four=0x7f090009;
-        public static final int dlg_actionbar_mainactv_rb_fourteen=0x7f090010;
-        public static final int dlg_actionbar_mainactv_rb_nine=0x7f09000e;
-        public static final int dlg_actionbar_mainactv_rb_one=0x7f090006;
-        public static final int dlg_actionbar_mainactv_rb_seven=0x7f09000c;
-        public static final int dlg_actionbar_mainactv_rb_six=0x7f09000b;
-        public static final int dlg_actionbar_mainactv_rb_sixteen=0x7f090012;
-        public static final int dlg_actionbar_mainactv_rb_ten=0x7f09000f;
-        public static final int dlg_actionbar_mainactv_rb_three=0x7f090008;
-        public static final int dlg_actionbar_mainactv_rb_two=0x7f090007;
-        public static final int dlg_actionbar_mainactv_rg=0x7f090005;
-        public static final int scrollView1=0x7f090004;
+        public static final int dlg_actionbar_mainactv_bt_cancel=0x7f090015;
+        public static final int dlg_actionbar_mainactv_bt_ok=0x7f090014;
+        public static final int dlg_actionbar_mainactv_rb_eight=0x7f09000e;
+        public static final int dlg_actionbar_mainactv_rb_fifteen=0x7f090012;
+        public static final int dlg_actionbar_mainactv_rb_five=0x7f09000b;
+        public static final int dlg_actionbar_mainactv_rb_four=0x7f09000a;
+        public static final int dlg_actionbar_mainactv_rb_fourteen=0x7f090011;
+        public static final int dlg_actionbar_mainactv_rb_nine=0x7f09000f;
+        public static final int dlg_actionbar_mainactv_rb_one=0x7f090007;
+        public static final int dlg_actionbar_mainactv_rb_seven=0x7f09000d;
+        public static final int dlg_actionbar_mainactv_rb_six=0x7f09000c;
+        public static final int dlg_actionbar_mainactv_rb_sixteen=0x7f090013;
+        public static final int dlg_actionbar_mainactv_rb_ten=0x7f090010;
+        public static final int dlg_actionbar_mainactv_rb_three=0x7f090009;
+        public static final int dlg_actionbar_mainactv_rb_two=0x7f090008;
+        public static final int dlg_actionbar_mainactv_rg=0x7f090006;
+        public static final int scrollView1=0x7f090005;
     }
     public static final class layout {
         public static final int actv_main=0x7f030000;
